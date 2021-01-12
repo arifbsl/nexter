@@ -22,13 +22,23 @@ body {
 .container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-rows: 80vh max-content 4vw;
-      grid-template-rows: 80vh -webkit-max-content 4vw;
-      grid-template-rows: 80vh max-content 4vw;
+  -ms-grid-rows: 80vh min-content 40vw (min-content)[3];
+      grid-template-rows: 80vh -webkit-min-content 40vw repeat(3, -webkit-min-content);
+      grid-template-rows: 80vh min-content 40vw repeat(3, min-content);
+  -ms-grid-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] ([col-start] minmax(min-content, 14rem) [col-end])[8] [center-end] minmax(6rem, 1fr) [full-end];
+      grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(-webkit-min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+      grid-template-columns: [sidebar-start] 8rem [sidebar-end full-start] minmax(6rem, 1fr) [center-start] repeat(8, [col-start] minmax(min-content, 14rem) [col-end]) [center-end] minmax(6rem, 1fr) [full-end];
+}
+
+.container > * {
+  padding: 4rem;
+  font-size: 3rem;
 }
 
 .sidebar {
   background-color: #c69963;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
 }
 
 .heder {
@@ -40,7 +50,8 @@ body {
 }
 
 .features {
-  background-color: #f9f7f6;
+  background-color: #aaa;
+  grid-column: center-start / center-end;
 }
 
 .story__pictures {
@@ -53,13 +64,16 @@ body {
 
 .homes {
   background-color: #101d2c;
+  grid-column: center-start / center-end;
 }
 
 .gallery {
   background-color: #54483A;
+  grid-column: full-start / full-end;
 }
 
 .footer {
   background-color: #101d2c;
+  grid-column: full-start / full-end;
 }
 /*# sourceMappingURL=main.css.map */
