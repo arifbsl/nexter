@@ -19,6 +19,14 @@ body {
   font-weight: 300;
 }
 
+.container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 80vh max-content 4vw;
+      grid-template-rows: 80vh -webkit-max-content 4vw;
+      grid-template-rows: 80vh max-content 4vw;
+}
+
 .sidebar {
   background-color: #c69963;
 }
